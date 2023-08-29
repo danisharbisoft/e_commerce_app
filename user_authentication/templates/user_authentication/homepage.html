@@ -1,0 +1,27 @@
+{% extends 'layout.html' %} <!-- extending from layout present in the templates of project directory -->
+{% debug %}
+{% block head %}
+<title>Homepage</title>
+{% endblock %}
+
+{% block body %}
+<h1>Welcome to this E-Commerce App</h1>
+<div>
+    <p>If you are a seller,click here:</p>
+
+    <!-- links to the user_authentication path while setting person parameter to seller -->
+    <a href="{% url 'user_authentication:authentication' person='seller' %}">
+        <button>Seller</button>
+    </a>
+</div>
+
+<div>
+    <p>If you are a buyer,click here:</p>
+
+     <!-- links to the user_authentication path while setting person parameter to buyer -->
+    <a href="{% url 'user_authentication:authentication' person='buyer' %}">
+        <button>Buyer</button>
+    </a>
+</div>
+{% endblock %}
+

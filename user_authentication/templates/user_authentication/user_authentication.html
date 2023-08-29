@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<title>User_authentication</title>
+{% endblock %}
+{% block body %}
+<h1>Welcome!</h1>
+<br>
+
+{% if person == 'seller' %}
+<p>Note:If you have already registered as a buyer,you do not have to register again,
+you can directly log-in</p>
+{% elif person == 'buyer' %}
+<p>Note:If you have already registered as a seller,you do not have to register again,
+you can directly log-in</p>
+{% endif %}
+<br>
+
+ <!-- links to the login path -->
+<h3>If you are already registered,click Here to login:</h3>
+ <a href="{% url 'user_authentication:login' %}">
+        <button>Login</button>
+ </a>
+
+<!-- links to the registration path -->
+<h3>If you are not registered, click here to register:</h3>
+  <a href="{% url 'user_authentication:register' %}">
+        <button>Register</button>
+    </a>
+
+{% endblock %}

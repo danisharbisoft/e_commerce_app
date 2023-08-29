@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block head  %}
+<title>Registration</title>
+{% endblock %}
+
+{% block body %}
+<h1>Registration</h1>
+<br>
+
+<!-- registers and redirects user to login-page -->
+<form method="post" class="authentication_form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register</button>
+</form>
+<p>Already have an account?
+    <a href="{% url 'user_authentication:login' %}">Click Here</a>
+</p>
+{% endblock %}
