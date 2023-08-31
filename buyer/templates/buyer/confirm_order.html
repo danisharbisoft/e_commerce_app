@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block head %}
+<title>Confirmation</title>
+{% endblock %}
+
+{% block body %}
+<h2>We have your details, click here to confirm order:</h2>
+<a href="{%url 'buyer:success' %}">
+    <button>
+    Confirm Order
+</button></a>
+{% endblock %}

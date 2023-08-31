@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block head %}
+<title>Cart</title>
+{% endblock %}
+
+{% block body %}
+<h1>Your Cart</h1>
+{% if cart_items %}
+{% for item in cart_items %}
+<ul>
+    <li>
+        {{item.product.product_name}}:{{item.product.product_price}}
+        <a href="{% url 'buyer:delete' pk=item.id %}">
+            <button>
+                Delete
+            </button>
+        </a>
+    </li>
+</ul>
+{% endfor %}
+{% else %}
+<h2>Your cart is empty</h2>
+{% endif %}
+
+<h1>Total price: {{total_price}}</h1>
+
+<div>
+    <a href="{%url 'buyer:dashboard' %}">
+        <button>
+            Click Here to go back
+        </button>
+    </a>
+
+    <a href="{%url 'buyer:checkout_logic' %}">
+        <button>
+            Checkout
+        </button>
+    </a>
+</div>
+{% endblock %}

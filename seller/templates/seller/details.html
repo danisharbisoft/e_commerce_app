@@ -1,0 +1,18 @@
+{% extends 'base_details_for_product_view.html' %}
+
+{% block links %}
+<div>
+    <a href="{% url 'seller:dashboard' %}">
+        <button>Homepage</button>
+    </a>
+    <a href="{% url 'seller:update' pk=object.id %}">
+        <button>Update</button>
+    </a>
+
+    <a href="{% url 'seller:delete' pk=object.id %}">
+        <button>Delete</button>
+    </a>
+
+
+</div>
+{% endblock %}

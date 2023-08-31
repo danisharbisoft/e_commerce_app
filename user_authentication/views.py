@@ -11,11 +11,8 @@ def homepage(request):
 
 
 # Loads user_authentication.html
-def authentication(request, person):
-    request.session['person'] = person
-    return render(request, 'user_authentication/user_authentication.html', {
-        'person': person
-    })
+def authentication(request):
+    return render(request, 'user_authentication/user_authentication.html')
 
 
 # Defining the view for registration
@@ -31,9 +28,3 @@ class RegisterForm(FormView):
 # Defining the view for login
 class CustomLoginView(LoginView):
     template_name = 'user_authentication/registration/login.html'
-
-    def form_valid(self, form):
-        if self.request.session['person'] == 'buyer':
-            return HttpResponseRedirect(reverse('buyer:dashboard'))
-        elif self.request.session['person'] == 'seller':
-            return HttpResponseRedirect(reverse('seller:dashboard'))

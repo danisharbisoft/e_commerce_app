@@ -1,0 +1,16 @@
+{% extends 'base_details_for_product_view.html' %}
+
+{% block head %}
+<title>Product Info</title>
+{% endblock %}
+
+{% block links %}
+<div>
+    <a href="{% url 'buyer:dashboard' %}">
+        <button>Homepage</button>
+    </a>
+    <a href="{% url 'buyer:add_to_cart' id=object.id %}">
+        <button>Add to Cart</button>
+    </a>
+</div>
+{% endblock %}

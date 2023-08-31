@@ -1,0 +1,7 @@
+{% extends 'generic_delete_page.html' %}
+{% block links %}
+<br>
+ <a href="{% url 'seller:product_detail' pk=object.id %}">
+        <button>Cancel</button>
+    </a>
+{% endblock %}
