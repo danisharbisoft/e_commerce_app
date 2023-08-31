@@ -7,15 +7,7 @@
 <h1>Welcome!</h1>
 <br>
 
-{% if person == 'seller' %}
-<p>Note:If you have already registered as a buyer,you do not have to register again,
-you can directly log-in</p>
-{% elif person == 'buyer' %}
-<p>Note:If you have already registered as a seller,you do not have to register again,
-you can directly log-in</p>
-{% endif %}
-<br>
-
+<p>If you have already registered as a buyer or a seller, you can directly log in. No need to register again</p>
  <!-- links to the login path -->
 <h3>If you are already registered,click Here to login:</h3>
  <a href="{% url 'user_authentication:login' %}">

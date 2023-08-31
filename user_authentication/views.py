@@ -2,9 +2,7 @@ from django.shortcuts import render, reverse
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import FormView
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.views import LoginView, LogoutView
-from .utils import get_dashboard_url
-
+from django.contrib.auth.views import LoginView
 
 
 # Loads Homepage
@@ -13,11 +11,8 @@ def homepage(request):
 
 
 # Loads user_authentication.html
-def authentication(request, person: str):
-    request.session['person'] = person
-    return render(request, 'user_authentication/user_authentication.html', {
-        'person': person
-    })
+def authentication(request):
+    return render(request, 'user_authentication/user_authentication.html')
 
 
 # Defining the view for registration
@@ -33,8 +28,3 @@ class RegisterForm(FormView):
 # Defining the view for login
 class CustomLoginView(LoginView):
     template_name = 'user_authentication/registration/login.html'
-
-    def form_valid(self, form):
-        person = self.request.session['person']
-        return HttpResponseRedirect(get_dashboard_url(person))
-

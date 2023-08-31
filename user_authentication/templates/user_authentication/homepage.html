@@ -9,8 +9,8 @@
 <div>
     <p>If you are a seller,click here:</p>
 
-    <!-- links to the user_authentication path while setting person parameter to seller -->
-    <a href="{% url 'user_authentication:authentication' person='seller' %}">
+    <!-- links to the seller dashboard -->
+    <a href="{% url 'seller:dashboard'  %}">
         <button>Seller</button>
     </a>
 </div>
@@ -18,10 +18,17 @@
 <div>
     <p>If you are a buyer,click here:</p>
 
-     <!-- links to the user_authentication path while setting person parameter to buyer -->
-    <a href="{% url 'user_authentication:authentication' person='buyer' %}">
+    <!-- links to the seller dashboard -->
+    <a href="{% url 'buyer:dashboard' %}">
         <button>Buyer</button>
     </a>
 </div>
+<br>
+<br>
+<br>
+
+ <a href="{% url 'user_authentication:logout' %}">
+        <button>Log Out</button>
+    </a>
 {% endblock %}
 

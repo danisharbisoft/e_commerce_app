@@ -7,7 +7,7 @@ from .forms import ProductForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-# Create your views here.
+# This View handles the seller dashboard
 class DashboardView(LoginRequiredMixin, ListView):
     template_name = 'seller/dashboard.html'
     context_object_name = 'product_list'
@@ -16,11 +16,13 @@ class DashboardView(LoginRequiredMixin, ListView):
         return ProductModel.objects.filter(user=self.request.user)
 
 
+# This View handles the detail page
 class ProductDetailView(LoginRequiredMixin, DetailView):
     model = ProductModel
     template_name = 'seller/details.html'
 
 
+# This View handles the add_product_page
 class AddProductForm(LoginRequiredMixin, FormView):
     form_class = ProductForm
     template_name = 'seller/add_product.html'
@@ -43,3 +45,14 @@ class DeleteProduct(DeleteView):
     model = ProductModel
     template_name = 'seller/confirm_delete.html'
     success_url = reverse_lazy('seller:dashboard')
+
+
+class UpdateProduct(UpdateView):
+    template_name = 'seller/update_product.html'
+    model = ProductModel
+
+    def get_success_url(self):
+        return reverse_lazy('seller:product_detail', args=(self.object.id,))
+
+    def get_form_class(self):
+        return ProductForm

@@ -123,4 +123,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'E_commerce_site/static')]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+LOGOUT_REDIRECT_URL = 'user_authentication:authentication'
+LOGIN_REDIRECT_URL = 'user_authentication:homepage'
+
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
