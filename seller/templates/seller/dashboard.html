@@ -1,2 +1,40 @@
 {% extends 'layout.html' %}
 
+{% block head %}
+<title>Seller Dashboard</title>
+{% endblock %}
+
+{% block body %}
+
+{% if product_list %}
+<h1>Your product list is as under</h1>
+{% for product in product_list %}
+<ul>
+    <li><a href="{% url 'seller:product_detail' pk=product.id %}">
+        {{product.product_name}}
+    </a>
+    </li>
+</ul>
+{% endfor %}
+Click here to add a new one:
+<a href="{% url 'seller:add_product' %}">
+    <button>Add Product</button>
+</a>
+
+{% else %}
+<h2>You have not published any products</h2>
+<div>Click here to add a new one:
+    <a href="{% url 'seller:add_product' %}">
+        <button>Add Product</button>
+    </a>
+</div>
+{% endif %}
+<br>
+<br>
+<br>
+<div>
+    <a href="{% url 'user_authentication:logout' %}">
+        <button>Log Out</button>
+    </a>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block head %}
+<title>Delete Product</title>
+{% endblock %}
+
+{% block body %}
+<h2>Delete Product</h2>
+<h1>Are you sure you want to delete the product "{{ object.product_name }}"?</h1>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirm</button>
+</form>
+<br>
+ <a href="{% url 'seller:product_detail' pk=object.id %}">
+        <button>Cancel</button>
+    </a>
+{% endblock %}

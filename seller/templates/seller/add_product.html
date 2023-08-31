@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block head %}
+<title>Add product</title>
+{% endblock %}
+
+{% block body %}
+<h1>Add product</h1>
+<fieldset>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+</fieldset>
+{% endblock %}

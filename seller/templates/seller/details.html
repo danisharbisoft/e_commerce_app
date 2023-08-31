@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block head %}
+<title>Product details</title>
+{% endblock %}
+
+{% block body %}
+<h1>Details:</h1>
+<div><h3>Product name:{{object.product_name}}</h3></div>
+<div><h3>Product Price:{{object.product_price}}</h3></div>
+<div><h3> Product Description:{{object.product_description}}</h3></div>
+<div><h3> Product Image</h3> : <img src="{{object.product_image.url}}" alt="{{object.product_name}}"></div>
+<div><h3>Published on: {{object.date}}</h3></div>
+<div>
+<a href="{% url 'seller:dashboard' %}">
+    <button>Homepage</button>
+</a>
+    <a href="{% url 'seller:delete' pk=object.id %}">
+    <button>Delete</button>
+</a>
+
+
+    </div>
+{% endblock %}
