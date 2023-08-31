@@ -1,2 +1,30 @@
 {% extends 'layout.html' %}
+{% block body %}
+<h1>Welcome!</h1>
+<h2>The following items are for sale:</h2>
+<h3>
+    <div>
+        <a href="{% url 'user_authentication:logout' %}">
+            <button>Log Out</button>
+        </a>
 
+        <a href="{% url 'user_authentication:homepage' %}">
+            <button>Switch</button>
+        </a>
+        <a href="{% url 'buyer:cart' %}"><button>Cart
+        </button></a>
+    </div>
+
+</h3>
+<div class="product-grid">
+    {% for product in all_products %}
+    <div class="product-box">
+        <a href="{% url 'buyer:product_details' pk=product.id %}">
+            <img class="product-image" src="{{ product.product_image.url }}" alt="{{ product.product_name }}">
+            <p>{{ product.product_name }}</p>
+            <p>Price: ${{ product.product_price }}</p>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block head %}
+<title>Order Complete</title>
+{% endblock %}
+
+{% block body %}
+<h1>Your order is confirmed.An email has been sent to you</h1>
+<a href="{% url 'buyer:dashboard' %}">
+    <button>
+        Homepage
+    </button>
+</a>
+{% endblock %}

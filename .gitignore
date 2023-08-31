@@ -44,7 +44,7 @@ db.sqlite3
 *.sql
 
 # Ignore media files
-media/
+
 uploads/
 
 # Ignore compiled translations
