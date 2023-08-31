@@ -17,6 +17,7 @@
 
 </h3>
 <div class="product-grid">
+    {% if all_products %}
     {% for product in all_products %}
     <div class="product-box">
         <a href="{% url 'buyer:product_details' pk=product.id %}">
@@ -26,5 +27,9 @@
         </a>
     </div>
     {% endfor %}
+    {% else %}
+    <h2>Sellers havent posted anything yet. How about you ask different people to use the app and post things</h2>
+    {% endif %}
 </div>
+
 {% endblock %}
